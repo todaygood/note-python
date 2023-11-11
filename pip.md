@@ -1,4 +1,5 @@
 
+## 安装指定的python包
 
 (venv) [root@pcentos eagleeye]# pip3 install werkzeug==
 Looking in indexes: https://mirrors.aliyun.com/pypi/simple/
