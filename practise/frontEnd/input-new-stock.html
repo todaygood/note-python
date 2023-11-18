@@ -1,0 +1,57 @@
+<html>
+
+
+<body>
+    <div> 股票代码：<input type="text" id="st_code" value="300059">
+         <button type="submit" onclick="postcode()"> 提交股票代码到后端 </button> 
+    <div>
+   
+    
+    <div> 股票名称：<input type="text" id="st_name" value="东方财富"> 
+        <button id="jquery"> 提交股票名称到后端 </button> 
+    </div>
+
+    
+    <script>
+
+        //js传送方法
+        function postcode() {
+            var st_code = document.getElementById("code").value;          
+
+            var xml = new XMLHttpRequest();
+            xml.open("get","http://localhost:5050/newstock?code="+st_code);
+
+            xml.onreadystatechange=function(){};
+
+            xml.send();
+
+          }
+
+        //jquery提交的ajax
+        $("#jquery").click(function(){
+
+            var st_name = $("#st_name").val()
+
+            //第一种传参数的写法
+            $.get("http://localhost:5050/newstock?name="+st_name,function(data){console.log(data)})
+
+            //第二种
+            $.get("http://localhost:5050/newstock",{one:st_name},function(data){
+                console.log(data);
+            })
+
+        })
+
+
+    </script>
+
+</body>
+
+
+
+
+</html>
+
+
+
+
